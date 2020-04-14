@@ -73,7 +73,7 @@ public class SrtSubtitles {
         return newFileStr;
     }
 
-    // get ##:##:##,### --> ##:##:##,###
+    // get shifted ##:##:##,### --> ##:##:##,###
     private static String getTimecodeLine(String line, double shift, double startingPoint) {
         String[] timecodes = new String[2];
         String[] times = line.split(" --> ");
