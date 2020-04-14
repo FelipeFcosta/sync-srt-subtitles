@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package syncsubtitles;
 
 import java.io.File;
@@ -13,9 +8,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author felipe
+ * @author fariasdc
  */
 public class SrtSubtitles {
+    
     /**
      *
      * @param  file the {@code File} to be synced 
@@ -45,7 +41,7 @@ public class SrtSubtitles {
     /**
      *
      * @param file 'srt' {@code File} to be synchronized
-     * @param shift        {@code Double} how many seconds to be delayed or hastened
+     * @param shift        {@code Double} how many seconds to be delayed or speeded up
      * @param startingPoint {@code Double} from here on the shift take effect
      * @return the new synced {@code File}
      */
@@ -108,7 +104,7 @@ public class SrtSubtitles {
         return String.format("%02d:%02d:%06.3f", hr, min, sec);
     }
 
-    // converts a timecode to seconds
+    // converts a timecode (hr:min:sec) to seconds
     private static double howManySeconds(String timecode) {
         String[] measures = timecode.split(":");
         int hr = Integer.parseInt(measures[0]);
@@ -121,8 +117,5 @@ public class SrtSubtitles {
         try (PrintStream printOut = new PrintStream(oldFile.getAbsolutePath())) {
             printOut.print(newFileStr);
         }
-    }
-
-    public static void main(String[] args) throws IOException {
     }
 }
